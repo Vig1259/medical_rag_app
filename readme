@@ -1,0 +1,158 @@
+# 🩺 Medical RAG Assistant
+
+A domain-restricted Retrieval-Augmented Generation (RAG) application built using:
+
+- Streamlit
+- FAISS
+- SentenceTransformers
+- Google Gemini API
+
+This application only answers **medical-related questions** based on uploaded medical PDF documents.
+
+---
+
+## 🚀 Features
+
+- Upload medical PDFs
+- Automatically extract text
+- Generate embeddings using SentenceTransformers
+- Store embeddings in FAISS vector database
+- Retrieve relevant chunks using similarity search
+- Generate answers using Gemini LLM
+- Reject non-medical PDFs
+- Reject non-medical questions
+
+---
+
+## 📂 Project Structure
+
+```
+medical_rag_app/
+│
+├── app.py
+├── requirements.txt
+├── .env
+└── README.md
+```
+
+---
+
+## ⚙️ Installation Guide
+
+### 1️⃣ Clone or Download Project
+
+```bash
+git clone <your-repo-link>
+cd medical_rag_app
+```
+
+Or manually download and open the folder.
+
+---
+
+### 2️⃣ Create Virtual Environment (Recommended)
+
+```bash
+python -m venv venv
+```
+
+Activate it:
+
+Windows:
+```bash
+venv\Scripts\activate
+```
+
+Mac/Linux:
+```bash
+source venv/bin/activate
+```
+
+---
+
+### 3️⃣ Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+### 4️⃣ Add Gemini API Key
+
+Create a `.env` file and add:
+
+```
+GEMINI_API_KEY=your_api_key_here
+```
+
+Get your API key from:
+https://ai.google.dev
+
+---
+
+### 5️⃣ Run the Application
+
+```bash
+streamlit run app.py
+```
+
+Open browser at:
+
+```
+http://localhost:8501
+```
+
+---
+
+## 🧠 How It Works
+
+1. User uploads medical PDF
+2. Text is extracted using PyMuPDF
+3. Text is split into chunks
+4. Chunks are embedded using SentenceTransformers
+5. FAISS stores embeddings
+6. User asks question
+7. Relevant chunks are retrieved
+8. Gemini generates final answer
+9. App validates that both PDF and query are medical-related
+
+---
+
+## 🛡 Domain Restriction Logic
+
+The system checks for medical keywords:
+
+- disease
+- treatment
+- diagnosis
+- therapy
+- clinical
+- hospital
+- patient
+- symptoms
+
+If the PDF or question is not medical-related, it will be rejected.
+
+---
+
+## 📌 Tech Stack
+
+- Python
+- Streamlit
+- FAISS
+- SentenceTransformers
+- Google Gemini API
+- LangChain Text Splitters
+
+---
+
+## 📈 Resume Description
+
+Built a domain-specific Medical RAG Assistant using FAISS, SentenceTransformers, and Gemini API with domain-restricted question answering via Streamlit.
+
+---
+
+## ⚠️ Disclaimer
+
+This application is for educational purposes only and should not be used for real medical advice.
